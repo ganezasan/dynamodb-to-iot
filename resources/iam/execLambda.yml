@@ -1,0 +1,43 @@
+Type: AWS::IAM::Role
+Properties:
+  RoleName: ${self:provider.stage}-${self:custom.appName}-execLambda
+  AssumeRolePolicyDocument:
+    Version: "2012-10-17"
+    Statement:
+      - Effect: "Allow"
+        Principal:
+          Service: "lambda.amazonaws.com"
+        Action: "sts:AssumeRole"
+  Policies:
+    - PolicyName: ${self:provider.stage}-${self:custom.appName}-execLambda
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Action:
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+            Resource:
+            - arn:aws:logs:${self:provider.region}:${self:custom.accountId}:log-group:/aws/lambda/*:*:*
+          - Effect: "Allow"
+            Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:UpdateItem
+            - dynamodb:PutItem
+            - dynamodb:DeleteItem
+            Resource:
+            - arn:aws:dynamodb:${self:provider.region}:*:*
+          - Effect: "Allow"
+            Action:
+            - dynamodb:DescribeStream
+            - dynamodb:GetRecords
+            - dynamodb:GetShardIterator
+            Resource:
+            - arn:aws:dynamodb:${self:provider.region}:${self:custom.accountId}:table/*/stream/*
+          - Effect: "Allow"
+            Action:
+            - dynamodb:ListStreams
+            Resource:
+            - "*"
