@@ -1,0 +1,15 @@
+handler: functions/sendMessageToIot/handler.handler
+memorySize: 128
+package:
+  include:
+    - 'functions/sendMessageToIot/*'
+events:
+  - stream:
+    type: dynamodb
+    batchSize: 1
+    startingPosition: TRIM_HORIZON
+    enabled: true
+    arn:
+      Fn::GetAtt:
+        - messages
+          - StreamArn

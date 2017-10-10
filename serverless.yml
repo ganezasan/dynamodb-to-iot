@@ -14,8 +14,8 @@ package:
   exclude:
     - '**/*'
 functions:
-  # messages
-  # sendMessageToIot: ${file(./functions/sendMessageToIot/index.yml)}
+  # sendMessageToIot
+  sendMessageToIot: ${file(./functions/sendMessageToIot/index.yml)}
 resources:
   Resources:
     #==========DynamoDB=========
