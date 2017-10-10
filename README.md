@@ -1,6 +1,7 @@
 # dynamodb-to-iot
 
-When created new record in dynamodb, lambda kick to send message to browser.
+This is trigger function to send message to iot. When created new record in dynamodb, browser catch the message.
+using dynamodb, lambda, iot
 
 ## Preparation
 ### install aws-cli
