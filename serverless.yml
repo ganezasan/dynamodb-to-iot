@@ -1,0 +1,24 @@
+service: dynamodbToIot
+frameworkVersion: ">=1.18.1"
+custom:
+  appName: dynamodbToIot
+  accountId: ${env:AWS_ACCOUNTID}
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: ap-northeast-1
+  role: execLambdaRole
+package:
+  individually: true
+  exclude:
+    - '**/*'
+functions:
+  # messages
+  # sendMessageToIot: ${file(./functions/sendMessageToIot/index.yml)}
+resources:
+  Resources:
+    #==========DynamoDB=========
+    messages: ${file(./resources/dynamodb/messages.yml)}
+    # ==========IAM=========
+    execLambdaRole: ${file(./resources/iam/execLambda.yml)}
