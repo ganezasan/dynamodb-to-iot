@@ -4,6 +4,7 @@
   "description": "serverless resources",
   "main": "index.js",
   "scripts": {
+    "start": "node subscriber.js",
     "deploy": "npm run lint && sls deploy",
     "lint": "eslint ./functions ./triggers",
     "lint:fix": "eslint ./functions ./triggers --fix",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/ganezasan/dynamodb-to-iot#readme",
   "dependencies": {
+    "aws-mqtt-client": "0.0.5",
     "eslint": "^4.4.1"
   },
   "devDependencies": {
