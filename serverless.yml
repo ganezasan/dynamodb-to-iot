@@ -3,6 +3,8 @@ frameworkVersion: ">=1.18.1"
 custom:
   appName: dynamodbToIot
   accountId: ${env:AWS_ACCOUNTID}
+  endpoint: ${env:AWS_IOT_ENDPOINT}
+  topicName: ${env:AWS_IOT_TOPIC}
 provider:
   name: aws
   runtime: nodejs6.10
