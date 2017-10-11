@@ -1,11 +1,11 @@
-handler: functions/sendSimple/handler.handler
+handler: functions/sendMessageToIot/handler.handler
 environment:
   AWS_IOT_ENDPOINT: ${self:custom.endpoint}
   AWS_IOT_TOPIC: ${self:custom.topicName}
 memorySize: 128
 package:
   include:
-    - 'functions/sendSimple/*'
+    - 'functions/sendMessageToIot/*'
 events:
   - stream:
       type: dynamodb
