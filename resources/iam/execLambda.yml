@@ -41,3 +41,8 @@ Properties:
             - dynamodb:ListStreams
             Resource:
             - "*"
+          - Effect: "Allow"
+            Action:
+            - "iot:*"
+            Resource:
+            - "*"
