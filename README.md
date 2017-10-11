@@ -3,6 +3,8 @@
 This is trigger function to send message to iot. When create new record in dynamodb, browser catch the message.
 using dynamodb, lambda, iot
 
+![system Image](https://raw.githubusercontent.com/ganezasan/dynamodb-to-iot/master/systemImage.png)
+
 ## Preparation
 ### install aws-cli
 Please install aws cli and set config
